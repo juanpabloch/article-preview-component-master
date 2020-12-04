@@ -1,0 +1,341 @@
+:root{
+    --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+    --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+    --Grayish-Blue: hsl(212, 23%, 69%);
+    --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    background-color: var(--Light-Grayish-Blue);
+    color: var(--Very-Dark-Grayish-Blue);
+    width: 100%;
+    
+}
+
+p{
+    color: var(--Desaturated-Dark-Blue);
+}
+
+.container{
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10% auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px -8px var(--Very-Dark-Grayish-Blue);
+}
+
+/* imagen */
+.imagen{
+    position: relative;
+    flex: 1;
+    width: 300px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 15px 0 0 15px;
+}
+.imagen img{
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* informacion */
+.info{
+    position: relative;
+    flex: 1.5;
+    background-color: #fff;
+    padding: 30px 30px 30px 40px;
+    width: 100%;
+    height: 350px;
+    border-radius: 0 15px 15px 0;
+}
+    .info h1{
+        font-size: 2vw;
+        width: 95%;
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
+    .info p{
+        width: 90%;
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .foto-info{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+        .foto-info .data{
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+            .foto-info .data .name p{
+                margin: 2px;
+            }
+            .foto-info .data img{
+                width: 40px;
+                padding: 10px;
+                background-color: var(--Light-Grayish-Blue);
+            }
+        .foto-info img{
+            width: 60px;
+            margin-right: 20px;
+            border-radius: 100%;
+        }
+        .foto-info h2{
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+        }
+        .foto-info p{
+            font-size: 1em;
+        }
+        #btn{
+            cursor: pointer;
+        }
+        #btn:hover{
+            background-color: var(--Grayish-Blue);
+        }
+
+/*share*/
+#share{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    top: 185px;
+    right: -58px;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    padding: 15px 35px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px -6px var(--Very-Dark-Grayish-Blue);
+    transition: all 0.3s ease;
+}
+    #share h3{
+        margin-right: 15px;
+        text-transform: uppercase;
+        font-weight: lighter;
+        color: var(--Grayish-Blue);
+        font-size: .95em;
+        letter-spacing: 5px;
+    }
+    #share img{
+        margin: 2px 10px;
+        background: transparent;
+        cursor: pointer;
+    }
+        #share img:hover{
+            filter: opacity(60%);
+        }
+
+    #share::after{
+        content: '';
+        position: absolute;
+        top: 40px;
+        left: 48%;
+        width: 0;
+        height: 0;
+        border-left: 20px solid var(--Very-Dark-Grayish-Blue);
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        transform: rotate(90deg);
+    }
+
+.close{
+    transform: scale(0);
+}
+.open{
+    transform: scale(1);
+}
+
+/* media query*/
+
+        @media(max-width: 1060px){
+            .container{
+                flex-direction: column;
+                height: 95vh;
+                overflow: hidden;
+            }
+            .imagen{
+                position: relative;
+                flex: 3;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 15px 15px 0 0;
+            }
+                .imagen img{
+                    width: 100%;
+                    height: 120%;
+                }
+
+            .info{
+                flex: 2;
+                height: 100%;
+                border-radius: 0 0 15px 15px;
+            }
+                .info h1{
+                    width: 95%;
+                    font-size: 1.8em;
+                }
+                #btn{
+                    z-index: 10;
+                }
+                #share{
+                    bottom: 0;
+                    top: 200px;
+                    right: 0;
+                    left: 0;
+                    padding: 15px 35px;
+                    border-radius: 0 0 10px 10px;
+                    z-index: 0;
+                    transition: all 0.4s cubic-bezier(0.47, 0, 0.745, 0.715);
+                }
+                    #share h3{
+                        margin-right: 80px;
+                        font-size: 1.2em;
+                    }
+                    #share img{
+                        width: 30px;
+                        margin: 2px 20px;
+                        background: transparent;
+                        cursor: pointer;
+                    }
+                    #share::after{
+                        content: '';
+                        display: none;
+                    }
+                    .close{
+                        transform: translateX(900px);
+                    }
+                    .open{
+                        transform: translateX();
+                    }
+        }
+
+        @media(max-width:850px){
+            #share{
+                top: 230px;
+            }
+        }
+        
+
+        @media(max-width: 700px){
+            .imagen{
+                min-height: 200px;
+            }
+            .info{
+                padding: 20px;
+            }
+            #share{
+                bottom: 0;
+                top: 250px;
+                right: 0;
+                left: 0;
+                padding: 10px 35px;
+            }
+                #share h3{
+                    margin-right: 40px;
+                    font-size: 1.2em;
+                }
+                #share img{
+                    width: 25px;
+                    margin: 2px 10px;
+                }
+        }
+
+        @media(max-width:570px){
+            #share{
+                bottom: 0;
+                top: 300px;
+                right: 0;
+                left: 0;
+                padding: 10px 30px;
+            }
+                #share h3{
+                    margin-right: 25px;
+                    font-size: 1.1em;
+                }
+                #share img{
+                    width: 20px;
+                    margin: 2px 10px;
+                }
+        }
+        
+
+        @media(max-width: 450px){
+            .container{
+                height: 700px;
+            }
+            .imagen{
+                flex: 2;
+            }
+            .info p{
+                width: 99%;
+                margin-bottom: 60px;
+            }
+            .info h1{
+                width: 100%;
+            }
+            .foto-info h2{
+                font-size: 1em;
+            }
+            .foto-info p{
+                font-size: .9em;
+                margin-right: 0;
+            }
+            .foto-info img{
+                width: 40px;
+                margin-right: 10px;
+            }
+            .foto-info .data img{
+                margin-right: 0;
+            }
+            #share{
+                bottom: 0;
+                top: 320px;
+                right: 0;
+                left: 0;
+                padding: 5px 20px;
+            }
+                #share h3{
+                    margin-right: 10px;
+                    font-size: .9em;
+                }
+                #share img{
+                    width: 20px;
+                    margin: 2px 5px;
+                }
+        }
+
+        @media(max-width: 420px){
+            #share{
+                top: 350px;
+            }
+            #btn{
+                width: 35px;
+                padding: 8px;
+            }
+        }
+        @media(max-width: 385px){
+            #share{
+                top: 400px;
+            }
+        }
